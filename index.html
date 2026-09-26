@@ -1,0 +1,249 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Rogue River Labs</title>
+<meta name="description" content="Rogue River Labs builds mobile apps and the APIs behind them, and finds where access checks break.">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Saira+Stencil+One&family=Saira+Condensed:wght@600;700&family=Saira:wght@400;500&display=swap">
+<style>
+:root{
+  --ground:#0F1412;
+  --panel:#151B18;
+  --line:#26302B;
+  --bone:#E9EEE7;
+  --mist:#9AA69F;
+  --lime:#B8F03A;
+  --lime-dim:#7FA92B;
+  box-sizing:border-box;
+  padding-top:env(safe-area-inset-top,0px);
+  padding-bottom:env(safe-area-inset-bottom,0px);
+}
+html{scroll-padding-top:env(safe-area-inset-top,0px);scroll-behavior:smooth}
+*,*::before,*::after{box-sizing:inherit}
+body{
+  margin:0;background:var(--ground);color:var(--bone);
+  font-family:'Saira',system-ui,sans-serif;font-size:17px;line-height:1.6;
+  -webkit-font-smoothing:antialiased;
+}
+a{color:var(--lime)}
+a:focus-visible,button:focus-visible{outline:2px solid var(--lime);outline-offset:4px}
+.wrap{width:min(1100px,100% - 48px);margin-inline:auto}
+
+/* nav */
+.nav{display:flex;align-items:center;justify-content:space-between;padding:28px 0}
+.brand{display:flex;align-items:center;gap:14px;text-decoration:none;color:var(--bone)}
+.brand svg{width:44px;height:44px}
+.brand .word{font-family:'Saira Stencil One',Impact,sans-serif;font-size:22px;letter-spacing:2px;line-height:1}
+.brand .labs{font-family:'Saira Condensed',sans-serif;font-weight:600;font-size:13px;letter-spacing:5px;color:var(--lime);margin-left:8px}
+.nav-links{display:flex;gap:28px}
+.nav-links a{color:var(--mist);text-decoration:none;font-size:15px}
+.nav-links a:hover{color:var(--bone)}
+@media (max-width:640px){.nav-links{display:none}}
+
+/* hero */
+.hero{display:grid;grid-template-columns:1.2fr 1fr;gap:48px;align-items:center;padding:56px 0 96px}
+.hero h1{
+  font-family:'Saira Condensed',sans-serif;font-weight:700;
+  font-size:clamp(56px,8vw,112px);line-height:.92;letter-spacing:-.5px;margin:0 0 28px;
+}
+.hero h1 span{display:block}
+.hero p{font-size:19px;max-width:34em;color:var(--mist);margin:0 0 36px}
+.hero p strong{color:var(--bone);font-weight:500}
+.actions{display:flex;gap:16px;flex-wrap:wrap}
+.btn{
+  display:inline-block;padding:14px 26px;border-radius:6px;text-decoration:none;
+  font-family:'Saira Condensed',sans-serif;font-weight:600;font-size:18px;letter-spacing:.5px;
+}
+.btn-lime{background:var(--lime);color:var(--ground)}
+.btn-lime:hover{background:#C9F75A}
+.btn-ghost{color:var(--bone);border:1px solid var(--line)}
+.btn-ghost:hover{border-color:var(--mist)}
+.mark{justify-self:center;width:min(100%,380px)}
+.mark svg{width:100%;height:auto;display:block}
+@media (max-width:860px){
+  .hero{grid-template-columns:1fr;padding:24px 0 72px}
+  .mark{order:-1;width:min(60%,240px);justify-self:start}
+}
+
+/* river motion, one deliberate moment */
+@media (prefers-reduced-motion:no-preference){
+  .river{animation:flow 9s linear infinite}
+  .river.slow{animation-duration:13s}
+  @keyframes flow{from{transform:translateX(0)}to{transform:translateX(-80px)}}
+}
+
+/* sections */
+section{padding:72px 0;border-top:1px solid var(--line)}
+h2{
+  font-family:'Saira Condensed',sans-serif;font-weight:700;
+  font-size:clamp(34px,4.5vw,52px);line-height:1;margin:0 0 36px;
+}
+.two{display:grid;grid-template-columns:1fr 1fr;gap:48px}
+@media (max-width:760px){.two{grid-template-columns:1fr;gap:36px}}
+.two h3{
+  font-family:'Saira Condensed',sans-serif;font-weight:600;font-size:28px;margin:0 0 12px;
+  padding-left:18px;border-left:4px solid var(--lime);line-height:1.1;
+}
+.two p{color:var(--mist);margin:0 0 14px;max-width:38em}
+.callout{
+  margin-top:48px;padding:28px 32px;background:var(--panel);border-radius:8px;
+  border-left:4px solid var(--lime);max-width:52em;
+}
+.callout p{margin:0;font-size:19px}
+.callout p + p{margin-top:10px;color:var(--mist);font-size:16px}
+
+/* apps */
+.apps{display:grid;grid-template-columns:repeat(3,1fr);gap:24px}
+@media (max-width:760px){.apps{grid-template-columns:1fr}}
+.app{padding:24px 26px 26px;background:var(--panel);border-radius:8px;border:1px solid var(--line)}
+.app h3{font-family:'Saira Condensed',sans-serif;font-weight:600;font-size:26px;margin:0 0 8px;line-height:1}
+.app p{margin:0;color:var(--mist);font-size:16px}
+.stack{margin-top:24px;color:var(--mist);font-size:15px;max-width:50em}
+
+/* founder */
+.founder{display:grid;grid-template-columns:1fr 1.4fr;gap:48px;align-items:start}
+@media (max-width:760px){.founder{grid-template-columns:1fr}}
+.founder p{color:var(--mist);margin:0 0 16px;max-width:38em}
+.founder p strong{color:var(--bone);font-weight:500}
+
+/* contact */
+.contact p{color:var(--mist);max-width:38em;margin:0 0 28px;font-size:19px}
+footer{padding:36px 0 48px;border-top:1px solid var(--line);color:var(--mist);font-size:14px;display:flex;justify-content:space-between;flex-wrap:wrap;gap:12px}
+</style>
+</head>
+<body>
+
+<header class="wrap">
+  <nav class="nav">
+    <a class="brand" href="#top" aria-label="Rogue River Labs home">
+      <svg viewBox="0 0 240 240" aria-hidden="true">
+        <defs>
+          <clipPath id="ck"><path d="M120 64 A36 36 0 0 1 140 130 L149 178 Q150 183 145 183 H95 Q90 183 91 178 L100 130 A36 36 0 0 1 120 64 Z"/></clipPath>
+          <clipPath id="ci"><circle cx="120" cy="120" r="93"/></clipPath>
+        </defs>
+        <circle cx="120" cy="120" r="100" fill="none" stroke="#B8F03A" stroke-width="7"/>
+        <g clip-path="url(#ci)">
+          <path d="M0 118 C 30 102, 50 134, 80 118 S 130 102, 160 118 S 210 134, 240 118" fill="none" stroke="#B8F03A" stroke-width="6" stroke-linecap="round"/>
+          <path d="M0 146 C 30 130, 50 162, 80 146 S 130 130, 160 146 S 210 162, 240 146" fill="none" stroke="#B8F03A" stroke-width="6" stroke-linecap="round"/>
+        </g>
+        <path d="M120 64 A36 36 0 0 1 140 130 L149 178 Q150 183 145 183 H95 Q90 183 91 178 L100 130 A36 36 0 0 1 120 64 Z" fill="#B8F03A"/>
+        <g clip-path="url(#ck)">
+          <path d="M0 118 C 30 102, 50 134, 80 118 S 130 102, 160 118 S 210 134, 240 118" fill="none" stroke="#0F1412" stroke-width="10" stroke-linecap="round"/>
+          <path d="M0 146 C 30 130, 50 162, 80 146 S 130 130, 160 146 S 210 162, 240 146" fill="none" stroke="#0F1412" stroke-width="10" stroke-linecap="round"/>
+        </g>
+      </svg>
+      <span class="word">ROGUE RIVER<span class="labs">LABS</span></span>
+    </a>
+    <div class="nav-links">
+      <a href="#work">What we do</a>
+      <a href="#apps">Apps</a>
+      <a href="#founder">Founder</a>
+      <a href="#contact">Contact</a>
+    </div>
+  </nav>
+</header>
+
+<main id="top">
+  <section class="wrap hero" style="border-top:0">
+    <div>
+      <h1><span>Build it.</span><span>Break it.</span><span>Lock it down.</span></h1>
+      <p>Rogue River Labs builds mobile apps and the APIs behind them, and finds where access checks break. <strong>We write the locks, so we know where teams forget to check them.</strong></p>
+      <div class="actions">
+        <a class="btn btn-lime" href="#contact">Get in touch</a>
+        <a class="btn btn-ghost" href="#work">See what we do</a>
+      </div>
+    </div>
+    <div class="mark" aria-hidden="true">
+      <svg viewBox="0 0 240 240">
+        <defs>
+          <clipPath id="hk"><path d="M120 64 A36 36 0 0 1 140 130 L149 178 Q150 183 145 183 H95 Q90 183 91 178 L100 130 A36 36 0 0 1 120 64 Z"/></clipPath>
+          <clipPath id="hi"><circle cx="120" cy="120" r="93"/></clipPath>
+        </defs>
+        <circle cx="120" cy="120" r="100" fill="none" stroke="#B8F03A" stroke-width="5"/>
+        <path d="M120 5 V14 M120 226 V235 M5 120 H14 M226 120 H235" stroke="#B8F03A" stroke-width="3" stroke-linecap="square"/>
+        <g clip-path="url(#hi)">
+          <path class="river" d="M0 118 C 30 102, 50 134, 80 118 S 130 102, 160 118 S 210 134, 240 118 S 290 102, 320 118" fill="none" stroke="#B8F03A" stroke-width="4" stroke-linecap="round"/>
+          <path class="river slow" d="M0 146 C 30 130, 50 162, 80 146 S 130 130, 160 146 S 210 162, 240 146 S 290 130, 320 146" fill="none" stroke="#B8F03A" stroke-width="4" stroke-linecap="round"/>
+        </g>
+        <path d="M120 64 A36 36 0 0 1 140 130 L149 178 Q150 183 145 183 H95 Q90 183 91 178 L100 130 A36 36 0 0 1 120 64 Z" fill="#B8F03A"/>
+        <g clip-path="url(#hk)">
+          <path class="river" d="M0 118 C 30 102, 50 134, 80 118 S 130 102, 160 118 S 210 134, 240 118 S 290 102, 320 118" fill="none" stroke="#0F1412" stroke-width="8" stroke-linecap="round"/>
+          <path class="river slow" d="M0 146 C 30 130, 50 162, 80 146 S 130 130, 160 146 S 210 162, 240 146 S 290 130, 320 146" fill="none" stroke="#0F1412" stroke-width="8" stroke-linecap="round"/>
+        </g>
+      </svg>
+    </div>
+  </section>
+
+  <section id="work">
+    <div class="wrap">
+      <h2>Two sides of the same door</h2>
+      <div class="two">
+        <div>
+          <h3>We build</h3>
+          <p>Production mobile apps in React Native, running on Supabase with Postgres, auth, and row level security. Every access rule is written by hand, not left to a default.</p>
+          <p>Shipped to real users on the App Store and Google Play, with analytics and AI features in production.</p>
+        </div>
+        <div>
+          <h3>We break</h3>
+          <p>Authorization testing on APIs. The bugs scanners miss because they need two real users to find: IDOR, broken function level authorization, and mass assignment.</p>
+          <p>Findings are reported responsibly through bug bounty programs on HackerOne, with clean reproduction steps and a suggested fix.</p>
+        </div>
+      </div>
+      <div class="callout">
+        <p>The whole test in one sentence: if I change the order number in the URL, do I see someone else's order?</p>
+        <p>The fix is testing as two users. Log in as A and B, replay A's requests with B's token, and flag anything that returns data it shouldn't.</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="apps">
+    <div class="wrap">
+      <h2>Apps we've shipped</h2>
+      <div class="apps">
+        <article class="app">
+          <h3>NutriLogix</h3>
+          <p>Nutrition tracking without the busywork. Log what you eat, see what it adds up to, and stay on target.</p>
+        </article>
+        <article class="app">
+          <h3>CastLog</h3>
+          <p>Fishing session logging. Track catches, conditions, and spots, and see what actually works over time.</p>
+        </article>
+        <article class="app">
+          <h3>Astro AI</h3>
+          <p>An AI powered mobile app built on the same stack, with every access rule written in house.</p>
+        </article>
+      </div>
+      <p class="stack">All three run on React Native and Supabase, with PostHog for analytics. Same builder, same access model, same attention to who can read what.</p>
+    </div>
+  </section>
+
+  <section id="founder">
+    <div class="wrap founder">
+      <h2>Founder</h2>
+      <div>
+        <p><strong>Anthony Smith</strong> is a full stack engineer in West Michigan who ships production apps on his own and spends his evenings breaking APIs.</p>
+        <p>Before Rogue River Labs, he spent three years on Department of Defense work at Intelligent Waves, building penetration testing software and working on GRAYPATH, a patented VPN that splits traffic across multiple encrypted paths at the same time.</p>
+        <p>Rogue River Labs is named for the river that runs through Rockford, Michigan, a few minutes from where the work gets done.</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="contact">
+    <div class="wrap contact">
+      <h2>Get in touch</h2>
+      <p>Building something with an API behind it? Want a second set of eyes on your access controls? Or just met me at a conference and want to keep talking? LinkedIn is the fastest way to reach me.</p>
+      <div class="actions">
+        <a class="btn btn-lime" href="https://www.linkedin.com/" target="_blank" rel="noopener">Connect on LinkedIn</a>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer class="wrap">
+  <span>Rogue River Labs, Rockford, Michigan</span>
+  <span>Build it. Break it. Lock it down.</span>
+</footer>
+
+</body>
+</html>
