@@ -117,13 +117,14 @@ h2{
 .stack{margin-top:24px;color:var(--mist);font-size:15px;max-width:50em}
 
 /* founder */
-.founder{display:grid;grid-template-columns:1fr 1.4fr;gap:48px;align-items:start}
-@media (max-width:760px){.founder{grid-template-columns:1fr}}
+.founder{display:grid;grid-template-columns:auto 1fr;gap:56px;align-items:center}
+@media (max-width:760px){.founder{grid-template-columns:1fr;gap:32px}}
 .founder p{color:var(--mist);margin:0 0 16px;max-width:38em}
+.founder p:last-child{margin-bottom:0}
 .founder p strong{color:var(--bone);font-weight:500}
 .portrait{
   width:240px;height:240px;border-radius:50%;object-fit:cover;object-position:center top;display:block;
-  border:4px solid var(--lime);padding:5px;background:var(--ground);margin-top:8px;
+  border:4px solid var(--lime);padding:5px;background:var(--ground);
 }
 @media (max-width:760px){.portrait{width:180px;height:180px}}
 
@@ -262,15 +263,15 @@ footer{padding:36px 0 48px;border-top:1px solid var(--line);color:var(--mist);fo
   </section>
 
   <section id="founder">
-    <div class="wrap founder">
-      <div>
-        <h2>Founder</h2>
+    <div class="wrap">
+      <h2>Founder</h2>
+      <div class="founder">
         <img class="portrait" src="img/anthony-smith.jpg" alt="Anthony Smith, founder of Rogue River Labs" width="800" height="800" loading="lazy">
-      </div>
-      <div>
-        <p><strong>Anthony Smith</strong> is a full stack engineer in West Michigan who ships production apps on his own and spends his evenings breaking APIs.</p>
-        <p>Before Rogue River Labs, he spent three years on Department of Defense work at Intelligent Waves, building penetration testing software and working on GRAYPATH, a patented VPN that splits traffic across multiple encrypted paths at the same time.</p>
-        <p>Rogue River Labs is named for the river that runs through Rockford, Michigan, a few minutes from where the work gets done.</p>
+        <div>
+          <p><strong>Anthony Smith</strong> is a full stack engineer in West Michigan who ships production apps on his own and spends his evenings breaking APIs.</p>
+          <p>Before Rogue River Labs, he spent three years on Department of Defense work at Intelligent Waves, building penetration testing software and working on GRAYPATH, a patented VPN that splits traffic across multiple encrypted paths at the same time.</p>
+          <p>Rogue River Labs is named for the river that runs through Rockford, Michigan, a few minutes from where the work gets done.</p>
+        </div>
       </div>
     </div>
   </section>
