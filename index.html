@@ -121,6 +121,12 @@ h2{
 @media (max-width:760px){.founder{grid-template-columns:1fr}}
 .founder p{color:var(--mist);margin:0 0 16px;max-width:38em}
 .founder p strong{color:var(--bone);font-weight:500}
+.portrait{
+  width:min(100%,300px);aspect-ratio:1;border-radius:8px;object-fit:cover;display:block;
+  border:1px solid var(--line);outline:4px solid var(--lime);outline-offset:6px;
+  margin:8px 0 0 6px;
+}
+@media (max-width:760px){.portrait{width:min(60%,220px)}}
 
 /* contact */
 .contact p{color:var(--mist);max-width:38em;margin:0 0 28px;font-size:19px}
@@ -258,7 +264,10 @@ footer{padding:36px 0 48px;border-top:1px solid var(--line);color:var(--mist);fo
 
   <section id="founder">
     <div class="wrap founder">
-      <h2>Founder</h2>
+      <div>
+        <h2>Founder</h2>
+        <img class="portrait" src="img/anthony-smith.jpg" alt="Anthony Smith, founder of Rogue River Labs" width="800" height="800" loading="lazy">
+      </div>
       <div>
         <p><strong>Anthony Smith</strong> is a full stack engineer in West Michigan who ships production apps on his own and spends his evenings breaking APIs.</p>
         <p>Before Rogue River Labs, he spent three years on Department of Defense work at Intelligent Waves, building penetration testing software and working on GRAYPATH, a patented VPN that splits traffic across multiple encrypted paths at the same time.</p>
