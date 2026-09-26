@@ -5,6 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>Rogue River Labs</title>
 <meta name="description" content="Rogue River Labs builds mobile apps and the APIs behind them, and finds where access checks break.">
+<meta name="keywords" content="API Security, Application Security, Authorization Testing, IDOR, BOLA, Broken Function Level Authorization, Bug Bounty, Penetration Testing, Secure API Design, React Native, Mobile App Development, Supabase, PostgreSQL, Row Level Security, Authentication, AI Security, iOS, Android">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Saira+Stencil+One&family=Saira+Condensed:wght@600;700&family=Saira:wght@400;500&display=swap">
 <style>
 :root{
@@ -92,6 +93,20 @@ h2{
 }
 .callout p{margin:0;font-size:19px}
 .callout p + p{margin-top:10px;color:var(--mist);font-size:16px}
+
+/* tags */
+.tags{margin-top:48px}
+.tags h3{
+  font-family:'Saira Condensed',sans-serif;font-weight:600;font-size:14px;letter-spacing:4px;
+  text-transform:uppercase;color:var(--lime);margin:0 0 16px;
+}
+.tags ul{list-style:none;margin:0;padding:0;display:flex;flex-wrap:wrap;gap:10px}
+.tags li{
+  padding:7px 14px;border:1px solid var(--line);border-radius:999px;
+  font-family:'Saira Condensed',sans-serif;font-weight:600;font-size:15px;letter-spacing:.5px;
+  color:var(--mist);background:var(--panel);
+}
+.tags li:hover{border-color:var(--lime-dim);color:var(--bone)}
 
 /* apps */
 .apps{display:grid;grid-template-columns:repeat(3,1fr);gap:24px}
@@ -193,6 +208,29 @@ footer{padding:36px 0 48px;border-top:1px solid var(--line);color:var(--mist);fo
       <div class="callout">
         <p>The whole test in one sentence: if I change the order number in the URL, do I see someone else's order?</p>
         <p>The fix is testing as two users. Log in as A and B, replay A's requests with B's token, and flag anything that returns data it shouldn't.</p>
+      </div>
+      <div class="tags">
+        <h3>Focus areas</h3>
+        <ul>
+          <li>API Security</li>
+          <li>Application Security</li>
+          <li>Authorization Testing</li>
+          <li>IDOR</li>
+          <li>BOLA</li>
+          <li>Broken Function Level Authorization</li>
+          <li>Bug Bounty</li>
+          <li>Penetration Testing</li>
+          <li>Secure API Design</li>
+          <li>React Native</li>
+          <li>Mobile App Development</li>
+          <li>Supabase</li>
+          <li>PostgreSQL</li>
+          <li>Row Level Security</li>
+          <li>Authentication</li>
+          <li>AI Security</li>
+          <li>iOS</li>
+          <li>Android</li>
+        </ul>
       </div>
     </div>
   </section>
