@@ -10,17 +10,19 @@
 <link rel="icon" href="favicon.svg" type="image/svg+xml">
 <link rel="apple-touch-icon" href="apple-touch-icon.png">
 <link rel="manifest" href="site.webmanifest">
-<meta name="theme-color" content="#0F1412">
+<meta name="theme-color" content="#0B1120">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Saira+Stencil+One&family=Saira+Condensed:wght@600;700&family=Saira:wght@400;500&display=swap">
 <style>
 :root{
-  --ground:#0F1412;
-  --panel:#151B18;
-  --line:#26302B;
-  --bone:#E9EEE7;
-  --mist:#9AA69F;
-  --lime:#B8F03A;
-  --lime-dim:#7FA92B;
+  --ground:#0B1120;
+  --panel:#121A2C;
+  --line:#26324A;
+  --text:#E8EDF6;
+  --muted:#9AA8C0;
+  --accent:#FF9F43;
+  --accent-hover:#FFB56B;
+  --accent-pressed:#E8862A;
+  --on-accent:#0B1120;
   box-sizing:border-box;
   padding-top:env(safe-area-inset-top,0px);
   padding-bottom:env(safe-area-inset-bottom,0px);
@@ -28,23 +30,23 @@
 html{scroll-padding-top:env(safe-area-inset-top,0px);scroll-behavior:smooth}
 *,*::before,*::after{box-sizing:inherit}
 body{
-  margin:0;background:var(--ground);color:var(--bone);
+  margin:0;background:var(--ground);color:var(--text);
   font-family:'Saira',system-ui,sans-serif;font-size:17px;line-height:1.6;
   -webkit-font-smoothing:antialiased;
 }
-a{color:var(--lime)}
-a:focus-visible,button:focus-visible{outline:2px solid var(--lime);outline-offset:4px}
+a{color:var(--accent)}
+a:focus-visible,button:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
 .wrap{width:min(1100px,100% - 48px);margin-inline:auto}
 
 /* nav */
 .nav{display:flex;align-items:center;justify-content:space-between;padding:28px 0}
-.brand{display:flex;align-items:center;gap:14px;text-decoration:none;color:var(--bone)}
-.brand svg{width:44px;height:44px}
+.brand{display:flex;align-items:center;gap:14px;text-decoration:none;color:var(--text)}
+.brand svg{width:44px;height:44px;color:var(--accent)}
 .brand .word{font-family:'Saira Stencil One',Impact,sans-serif;font-size:22px;letter-spacing:2px;line-height:1}
-.brand .labs{font-family:'Saira Condensed',sans-serif;font-weight:600;font-size:13px;letter-spacing:5px;color:var(--lime);margin-left:8px}
+.brand .labs{font-family:'Saira Condensed',sans-serif;font-weight:600;font-size:13px;letter-spacing:5px;color:var(--accent);margin-left:8px}
 .nav-links{display:flex;gap:28px}
-.nav-links a{color:var(--mist);text-decoration:none;font-size:15px}
-.nav-links a:hover{color:var(--bone)}
+.nav-links a{color:var(--muted);text-decoration:none;font-size:15px}
+.nav-links a:hover{color:var(--text)}
 @media (max-width:640px){.nav-links{display:none}}
 
 /* hero */
@@ -52,20 +54,24 @@ a:focus-visible,button:focus-visible{outline:2px solid var(--lime);outline-offse
 .hero h1{
   font-family:'Saira Condensed',sans-serif;font-weight:700;
   font-size:clamp(56px,8vw,112px);line-height:.92;letter-spacing:-.5px;margin:0 0 28px;
+  color:var(--text);
 }
 .hero h1 span{display:block}
-.hero p{font-size:19px;max-width:34em;color:var(--mist);margin:0 0 36px}
-.hero p strong{color:var(--bone);font-weight:500}
+.hero p{font-size:19px;max-width:34em;color:var(--muted);margin:0 0 36px}
+.hero p strong{color:var(--text);font-weight:500}
 .actions{display:flex;gap:16px;flex-wrap:wrap}
 .btn{
-  display:inline-block;padding:14px 26px;border-radius:6px;text-decoration:none;
+  display:inline-flex;align-items:center;justify-content:center;
+  min-height:44px;padding:10px 26px;border-radius:8px;text-decoration:none;
   font-family:'Saira Condensed',sans-serif;font-weight:600;font-size:18px;letter-spacing:.5px;
 }
-.btn-lime{background:var(--lime);color:var(--ground)}
-.btn-lime:hover{background:#C9F75A}
-.btn-ghost{color:var(--bone);border:1px solid var(--line)}
-.btn-ghost:hover{border-color:var(--mist)}
-.mark{justify-self:center;width:min(100%,380px)}
+.btn:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
+.btn-primary{background:var(--accent);color:var(--on-accent);border:none}
+.btn-primary:hover{background:var(--accent-hover);color:var(--on-accent)}
+.btn-primary:active{background:var(--accent-pressed);color:var(--on-accent)}
+.btn-ghost{color:var(--text);background:transparent;border:2px solid var(--muted)}
+.btn-ghost:hover{border-color:var(--muted);color:var(--text)}
+.mark{justify-self:center;width:min(100%,380px);color:var(--accent)}
 .mark svg{width:100%;height:auto;display:block}
 @media (max-width:860px){
   .hero{grid-template-columns:1fr;padding:24px 0 72px}
@@ -89,53 +95,53 @@ h2{
 @media (max-width:760px){.two{grid-template-columns:1fr;gap:36px}}
 .two h3{
   font-family:'Saira Condensed',sans-serif;font-weight:600;font-size:28px;margin:0 0 12px;
-  padding-left:18px;border-left:4px solid var(--lime);line-height:1.1;
+  padding-left:18px;border-left:4px solid var(--accent);line-height:1.1;
 }
-.two p{color:var(--mist);margin:0 0 14px;max-width:38em}
+.two p{color:var(--muted);margin:0 0 14px;max-width:38em}
 .callout{
   margin-top:48px;padding:28px 32px;background:var(--panel);border-radius:8px;
-  border-left:4px solid var(--lime);max-width:52em;
+  border-left:4px solid var(--accent);max-width:52em;
 }
 .callout p{margin:0;font-size:19px}
-.callout p + p{margin-top:10px;color:var(--mist);font-size:16px}
+.callout p + p{margin-top:10px;color:var(--muted);font-size:16px}
 
 /* tags */
 .tags{margin-top:48px}
 .tags h3{
   font-family:'Saira Condensed',sans-serif;font-weight:600;font-size:14px;letter-spacing:4px;
-  text-transform:uppercase;color:var(--lime);margin:0 0 16px;
+  text-transform:uppercase;color:var(--accent);margin:0 0 16px;
 }
 .tags ul{list-style:none;margin:0;padding:0;display:flex;flex-wrap:wrap;gap:10px}
 .tags li{
-  padding:7px 14px;border:1px solid var(--line);border-radius:999px;
+  padding:7px 14px;border:1px solid var(--muted);border-radius:999px;
   font-family:'Saira Condensed',sans-serif;font-weight:600;font-size:15px;letter-spacing:.5px;
-  color:var(--mist);background:var(--panel);
+  color:var(--muted);background:var(--panel);
 }
-.tags li:hover{border-color:var(--lime-dim);color:var(--bone)}
+.tags li:hover{border-color:var(--muted);color:var(--text)}
 
 /* apps */
 .apps{display:grid;grid-template-columns:repeat(3,1fr);gap:24px}
 @media (max-width:760px){.apps{grid-template-columns:1fr}}
 .app{padding:24px 26px 26px;background:var(--panel);border-radius:8px;border:1px solid var(--line)}
 .app h3{font-family:'Saira Condensed',sans-serif;font-weight:600;font-size:26px;margin:0 0 8px;line-height:1}
-.app p{margin:0;color:var(--mist);font-size:16px}
-.stack{margin-top:24px;color:var(--mist);font-size:15px;max-width:50em}
+.app p{margin:0;color:var(--muted);font-size:16px}
+.stack{margin-top:24px;color:var(--muted);font-size:15px;max-width:50em}
 
 /* founder */
 .founder{display:grid;grid-template-columns:auto 1fr;gap:56px;align-items:center}
 @media (max-width:760px){.founder{grid-template-columns:1fr;gap:32px}}
-.founder p{color:var(--mist);margin:0 0 16px;max-width:38em}
+.founder p{color:var(--muted);margin:0 0 16px;max-width:38em}
 .founder p:last-child{margin-bottom:0}
-.founder p strong{color:var(--bone);font-weight:500}
+.founder p strong{color:var(--text);font-weight:500}
 .portrait{
   width:240px;height:240px;border-radius:50%;object-fit:cover;object-position:center top;display:block;
-  border:4px solid var(--lime);padding:5px;background:var(--ground);
+  border:4px solid var(--accent);padding:5px;background:var(--ground);
 }
 @media (max-width:760px){.portrait{width:180px;height:180px}}
 
 /* contact */
-.contact p{color:var(--mist);max-width:38em;margin:0 0 28px;font-size:19px}
-footer{padding:36px 0 48px;border-top:1px solid var(--line);color:var(--mist);font-size:14px;display:flex;justify-content:space-between;flex-wrap:wrap;gap:12px}
+.contact p{color:var(--muted);max-width:38em;margin:0 0 28px;font-size:19px}
+footer{padding:36px 0 48px;border-top:1px solid var(--line);color:var(--muted);font-size:14px;display:flex;justify-content:space-between;flex-wrap:wrap;gap:12px}
 </style>
 </head>
 <body>
@@ -148,15 +154,15 @@ footer{padding:36px 0 48px;border-top:1px solid var(--line);color:var(--mist);fo
           <clipPath id="ck"><path d="M120 64 A36 36 0 0 1 140 130 L149 178 Q150 183 145 183 H95 Q90 183 91 178 L100 130 A36 36 0 0 1 120 64 Z"/></clipPath>
           <clipPath id="ci"><circle cx="120" cy="120" r="93"/></clipPath>
         </defs>
-        <circle cx="120" cy="120" r="100" fill="none" stroke="#B8F03A" stroke-width="7"/>
+        <circle cx="120" cy="120" r="100" fill="none" stroke="currentColor" stroke-width="7"/>
         <g clip-path="url(#ci)">
-          <path d="M0 118 C 30 102, 50 134, 80 118 S 130 102, 160 118 S 210 134, 240 118" fill="none" stroke="#B8F03A" stroke-width="6" stroke-linecap="round"/>
-          <path d="M0 146 C 30 130, 50 162, 80 146 S 130 130, 160 146 S 210 162, 240 146" fill="none" stroke="#B8F03A" stroke-width="6" stroke-linecap="round"/>
+          <path d="M0 118 C 30 102, 50 134, 80 118 S 130 102, 160 118 S 210 134, 240 118" fill="none" stroke="currentColor" stroke-width="6" stroke-linecap="round"/>
+          <path d="M0 146 C 30 130, 50 162, 80 146 S 130 130, 160 146 S 210 162, 240 146" fill="none" stroke="currentColor" stroke-width="6" stroke-linecap="round"/>
         </g>
-        <path d="M120 64 A36 36 0 0 1 140 130 L149 178 Q150 183 145 183 H95 Q90 183 91 178 L100 130 A36 36 0 0 1 120 64 Z" fill="#B8F03A"/>
+        <path d="M120 64 A36 36 0 0 1 140 130 L149 178 Q150 183 145 183 H95 Q90 183 91 178 L100 130 A36 36 0 0 1 120 64 Z" fill="currentColor"/>
         <g clip-path="url(#ck)">
-          <path d="M0 118 C 30 102, 50 134, 80 118 S 130 102, 160 118 S 210 134, 240 118" fill="none" stroke="#0F1412" stroke-width="10" stroke-linecap="round"/>
-          <path d="M0 146 C 30 130, 50 162, 80 146 S 130 130, 160 146 S 210 162, 240 146" fill="none" stroke="#0F1412" stroke-width="10" stroke-linecap="round"/>
+          <path d="M0 118 C 30 102, 50 134, 80 118 S 130 102, 160 118 S 210 134, 240 118" fill="none" stroke="var(--ground)" stroke-width="10" stroke-linecap="round"/>
+          <path d="M0 146 C 30 130, 50 162, 80 146 S 130 130, 160 146 S 210 162, 240 146" fill="none" stroke="var(--ground)" stroke-width="10" stroke-linecap="round"/>
         </g>
       </svg>
       <span class="word">ROGUE RIVER<span class="labs">LABS</span></span>
@@ -176,7 +182,7 @@ footer{padding:36px 0 48px;border-top:1px solid var(--line);color:var(--mist);fo
       <h1><span>Build it.</span><span>Break it.</span><span>Lock it down.</span></h1>
       <p>Rogue River Labs builds mobile apps and the APIs behind them, and finds where access checks break. <strong>We write the locks, so we know where teams forget to check them.</strong></p>
       <div class="actions">
-        <a class="btn btn-lime" href="#contact">Get in touch</a>
+        <a class="btn btn-primary" href="#contact">Get in touch</a>
         <a class="btn btn-ghost" href="#work">See what we do</a>
       </div>
     </div>
@@ -186,16 +192,16 @@ footer{padding:36px 0 48px;border-top:1px solid var(--line);color:var(--mist);fo
           <clipPath id="hk"><path d="M120 64 A36 36 0 0 1 140 130 L149 178 Q150 183 145 183 H95 Q90 183 91 178 L100 130 A36 36 0 0 1 120 64 Z"/></clipPath>
           <clipPath id="hi"><circle cx="120" cy="120" r="93"/></clipPath>
         </defs>
-        <circle cx="120" cy="120" r="100" fill="none" stroke="#B8F03A" stroke-width="5"/>
-        <path d="M120 5 V14 M120 226 V235 M5 120 H14 M226 120 H235" stroke="#B8F03A" stroke-width="3" stroke-linecap="square"/>
+        <circle cx="120" cy="120" r="100" fill="none" stroke="currentColor" stroke-width="5"/>
+        <path d="M120 5 V14 M120 226 V235 M5 120 H14 M226 120 H235" stroke="currentColor" stroke-width="3" stroke-linecap="square"/>
         <g clip-path="url(#hi)">
-          <path class="river" d="M0 118 C 30 102, 50 134, 80 118 S 130 102, 160 118 S 210 134, 240 118 S 290 102, 320 118" fill="none" stroke="#B8F03A" stroke-width="4" stroke-linecap="round"/>
-          <path class="river slow" d="M0 146 C 30 130, 50 162, 80 146 S 130 130, 160 146 S 210 162, 240 146 S 290 130, 320 146" fill="none" stroke="#B8F03A" stroke-width="4" stroke-linecap="round"/>
+          <path class="river" d="M0 118 C 30 102, 50 134, 80 118 S 130 102, 160 118 S 210 134, 240 118 S 290 102, 320 118" fill="none" stroke="currentColor" stroke-width="4" stroke-linecap="round"/>
+          <path class="river slow" d="M0 146 C 30 130, 50 162, 80 146 S 130 130, 160 146 S 210 162, 240 146 S 290 130, 320 146" fill="none" stroke="currentColor" stroke-width="4" stroke-linecap="round"/>
         </g>
-        <path d="M120 64 A36 36 0 0 1 140 130 L149 178 Q150 183 145 183 H95 Q90 183 91 178 L100 130 A36 36 0 0 1 120 64 Z" fill="#B8F03A"/>
+        <path d="M120 64 A36 36 0 0 1 140 130 L149 178 Q150 183 145 183 H95 Q90 183 91 178 L100 130 A36 36 0 0 1 120 64 Z" fill="currentColor"/>
         <g clip-path="url(#hk)">
-          <path class="river" d="M0 118 C 30 102, 50 134, 80 118 S 130 102, 160 118 S 210 134, 240 118 S 290 102, 320 118" fill="none" stroke="#0F1412" stroke-width="8" stroke-linecap="round"/>
-          <path class="river slow" d="M0 146 C 30 130, 50 162, 80 146 S 130 130, 160 146 S 210 162, 240 146 S 290 130, 320 146" fill="none" stroke="#0F1412" stroke-width="8" stroke-linecap="round"/>
+          <path class="river" d="M0 118 C 30 102, 50 134, 80 118 S 130 102, 160 118 S 210 134, 240 118 S 290 102, 320 118" fill="none" stroke="var(--ground)" stroke-width="8" stroke-linecap="round"/>
+          <path class="river slow" d="M0 146 C 30 130, 50 162, 80 146 S 130 130, 160 146 S 210 162, 240 146 S 290 130, 320 146" fill="none" stroke="var(--ground)" stroke-width="8" stroke-linecap="round"/>
         </g>
       </svg>
     </div>
@@ -286,7 +292,7 @@ footer{padding:36px 0 48px;border-top:1px solid var(--line);color:var(--mist);fo
       <h2>Get in touch</h2>
       <p>Building something with an API behind it? Want a second set of eyes on your access controls? Or just met me at a conference and want to keep talking? LinkedIn is the fastest way to reach me.</p>
       <div class="actions">
-        <a class="btn btn-lime" href="https://www.linkedin.com/" target="_blank" rel="noopener">Connect on LinkedIn</a>
+        <a class="btn btn-primary" href="https://www.linkedin.com/" target="_blank" rel="noopener">Connect on LinkedIn</a>
       </div>
     </div>
   </section>
