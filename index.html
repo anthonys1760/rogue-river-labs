@@ -120,24 +120,30 @@ h2{
 .tags li:hover{border-color:var(--muted);color:var(--text)}
 
 /* apps */
-.apps{display:grid;grid-template-columns:repeat(3,1fr);gap:24px}
+.apps{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;align-items:stretch}
 @media (max-width:760px){.apps{grid-template-columns:1fr}}
-.app{padding:24px 26px 26px;background:var(--panel);border-radius:8px;border:1px solid var(--line)}
+.app{
+  display:flex;flex-direction:column;height:100%;
+  padding:0 0 26px;background:var(--panel);border-radius:8px;border:1px solid var(--line);
+  overflow:hidden;
+}
+.app-media{
+  margin:0;background:#070C16;aspect-ratio:16/10;overflow:hidden;flex-shrink:0;
+  border-bottom:1px solid var(--line);
+}
+.app-media img{width:100%;height:100%;object-fit:cover;object-position:center;display:block}
+.app-body{padding:22px 26px 0;flex:1;display:flex;flex-direction:column}
 .app h3{font-family:'Saira Condensed',sans-serif;font-weight:600;font-size:26px;margin:0 0 8px;line-height:1}
 .app p{margin:0;color:var(--muted);font-size:16px}
+.app-links{margin-top:14px;font-size:15px}
+.app-links a{color:var(--accent);text-decoration:none}
+.app-links a:hover{color:var(--accent-hover);text-decoration:underline}
 .stack{margin-top:24px;color:var(--muted);font-size:15px;max-width:50em}
 
 /* founder */
-.founder{display:grid;grid-template-columns:auto 1fr;gap:56px;align-items:center}
-@media (max-width:760px){.founder{grid-template-columns:1fr;gap:32px}}
 .founder p{color:var(--muted);margin:0 0 16px;max-width:38em}
 .founder p:last-child{margin-bottom:0}
 .founder p strong{color:var(--text);font-weight:500}
-.portrait{
-  width:240px;height:240px;border-radius:50%;object-fit:cover;object-position:center top;display:block;
-  border:4px solid var(--accent);padding:5px;background:var(--ground);
-}
-@media (max-width:760px){.portrait{width:180px;height:180px}}
 
 /* contact */
 .contact p{color:var(--muted);max-width:38em;margin:0 0 28px;font-size:19px}
@@ -257,19 +263,46 @@ footer{padding:36px 0 48px;border-top:1px solid var(--line);color:var(--muted);f
       <h2>Apps we've shipped</h2>
       <div class="apps">
         <article class="app">
-          <h3>NutriLogix</h3>
-          <p>Nutrition tracking without the busywork. Log what you eat, see what it adds up to, and stay on target.</p>
+          <figure class="app-media">
+            <picture>
+              <source type="image/webp" srcset="img/apps/nutrilogix-devices-800.webp 800w, img/apps/nutrilogix-devices.webp 1600w" sizes="(max-width:760px) calc(100vw - 48px), min(340px, 28vw)">
+              <img src="img/apps/nutrilogix-devices-800.jpg" width="1600" height="1000" alt="Nutrilogix nutrition app shown on a laptop, tablet, and phone" loading="lazy" decoding="async">
+            </picture>
+          </figure>
+          <div class="app-body">
+            <h3>Nutrilogix</h3>
+            <p>Nutrition tracking without the busywork. Log what you eat, see what it adds up to, and stay on target.</p>
+            <p class="app-links"><a href="https://nutrilogix-ai.com/" target="_blank" rel="noopener">nutrilogix-ai.com</a></p>
+          </div>
         </article>
         <article class="app">
-          <h3>CastLog</h3>
-          <p>Fishing session logging. Track catches, conditions, and spots, and see what actually works over time.</p>
+          <figure class="app-media">
+            <picture>
+              <source type="image/webp" srcset="img/apps/castlog-devices-800.webp 800w, img/apps/castlog-devices.webp 1600w" sizes="(max-width:760px) calc(100vw - 48px), min(340px, 28vw)">
+              <img src="img/apps/castlog-devices-800.jpg" width="1600" height="1000" alt="CastLog fishing journal shown on a laptop, tablet, and phone" loading="lazy" decoding="async">
+            </picture>
+          </figure>
+          <div class="app-body">
+            <h3>CastLog</h3>
+            <p>Fishing session logging. Track catches, conditions, and spots, and see what actually works over time.</p>
+            <p class="app-links"><a href="https://castlogapp.com/" target="_blank" rel="noopener">castlogapp.com</a> · <a href="https://castlogapp.com/#android-invite" target="_blank" rel="noopener">Android</a></p>
+          </div>
         </article>
         <article class="app">
-          <h3>Astro AI</h3>
-          <p>An AI powered mobile app built on the same stack, with every access rule written in house.</p>
+          <figure class="app-media">
+            <picture>
+              <source type="image/webp" srcset="img/apps/voicelift-devices-800.webp 800w, img/apps/voicelift-devices.webp 1600w" sizes="(max-width:760px) calc(100vw - 48px), min(340px, 28vw)">
+              <img src="img/apps/voicelift-devices-800.jpg" width="1600" height="1000" alt="VoiceLift workout logger shown on a laptop, tablet, and phone" loading="lazy" decoding="async">
+            </picture>
+          </figure>
+          <div class="app-body">
+            <h3>VoiceLift</h3>
+            <p>Voice-first workout logging. Say a set and it is logged, including gym slang, supersets, and partials.</p>
+            <p class="app-links"><a href="https://voicelift.app/" target="_blank" rel="noopener">voicelift.app</a></p>
+          </div>
         </article>
       </div>
-      <p class="stack">All three run on React Native and Supabase, with PostHog for analytics. Same builder, same access model, same attention to who can read what.</p>
+      <p class="stack">Nutrilogix, CastLog, and VoiceLift run on React Native and Supabase, with PostHog for analytics. Same builder, same access model, same attention to who can read what.</p>
     </div>
   </section>
 
@@ -277,12 +310,9 @@ footer{padding:36px 0 48px;border-top:1px solid var(--line);color:var(--muted);f
     <div class="wrap">
       <h2>Founder</h2>
       <div class="founder">
-        <img class="portrait" src="img/anthony-smith.jpg" alt="Anthony Smith, founder of Rogue River Labs" width="800" height="800" loading="lazy">
-        <div>
-          <p><strong>Anthony Smith</strong> is a full stack engineer in West Michigan who ships production apps on his own and spends his evenings breaking APIs.</p>
-          <p>Before Rogue River Labs, he spent three years on Department of Defense work at Intelligent Waves, building penetration testing software and working on GRAYPATH, a patented VPN that splits traffic across multiple encrypted paths at the same time.</p>
-          <p>Rogue River Labs is named for the river that runs through Rockford, Michigan, a few minutes from where the work gets done.</p>
-        </div>
+        <p><strong>Anthony Smith</strong> is a full stack engineer in West Michigan who ships production apps on his own and spends his evenings breaking APIs.</p>
+        <p>Before Rogue River Labs, he spent three years on Department of Defense work at Intelligent Waves, building penetration testing software and working on GRAYPATH, a patented VPN that splits traffic across multiple encrypted paths at the same time.</p>
+        <p>Rogue River Labs is named for the river that runs through Rockford, Michigan, a few minutes from where the work gets done.</p>
       </div>
     </div>
   </section>
